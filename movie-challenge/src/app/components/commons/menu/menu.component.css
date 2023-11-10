@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  height: 14vh;
+  background-color: #870811;
+}
+.container-md {
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+#movie-icon {
+  width: 10.55%;
+  height: auto;
+  margin-left: 2rem;
+}
+
+#navigation{
+  width: 30vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar-title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-home, .navbar-details {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+}

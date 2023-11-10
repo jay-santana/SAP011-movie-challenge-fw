@@ -1,0 +1,11 @@
+<!-- <p>movie-container works!</p> -->
+
+<div id="movie-container">
+  <div class="cards" *ngFor="let movie of movies">
+    <img src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}" class="card-img-top" alt="Title">
+    <div class="card-body">
+      <h5 id="title">{{movie.title}}</h5>
+      <h5 id="date">{{movie.release_date | date: 'yyyy'}}</h5>
+    </div>
+  </div>
+</div>

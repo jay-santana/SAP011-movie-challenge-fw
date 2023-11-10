@@ -1,0 +1,11 @@
+<div id="home-container">
+  <section id="top-content">
+    <app-top-content></app-top-content>
+  </section>
+  <section id="movie-container">
+    <app-movie-container [movies]="movies"></app-movie-container>
+  </section>
+  <section id="pagination">
+    <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)"></app-pagination>
+  </section>
+</div>

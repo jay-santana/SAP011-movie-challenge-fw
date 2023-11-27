@@ -1,18 +1,28 @@
 <section id="top-content-container">
   <div id="filter-container">
-    <select id="filter-genre">
-      <option value="">Filter by Genre</option>
+    <select id="filter-genre" [(ngModel)]="selectedGenre" (change)="optionsChange()">
+      <option value="0">Filter by Genre</option>
+      <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
     </select>
-    <select id="order">
-      <option value="">Order by</option>
+    <select id="order" [(ngModel)]="selectedOrder" (change)="optionsChange()">
+      <option *ngFor="let order of orderByList" [value]="order.order">{{ order.text }}</option>
     </select>
   </div>
-  <div id="search-container">
-    <section id="search">
+
+    <section id="search-container">
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input id="search" name="search" [(ngModel)]="keyWord" class="form-control" type="search" placeholder="Search" aria-label="Search" (input)="optionsChange()">
+        <!-- <button class="btn btn-outline-success" type="button" (click)="optionsChange()">Search</button> -->
+        <img src="assets/search.png" class="search-icon" alt="Search Image">
       </form>
     </section>
-  </div>
+ 
+  <!-- <div style="color: white">
+    {{ selectedGenre }} - {{ selectedOrder }}
+  </div> -->
 </section>
+
+   <!-- <select id="order">
+      <option value="">Order by</option>
+      <option *ngFor="let option of orderBy" [value]="option">{{ option }}</option>
+    </select> -->

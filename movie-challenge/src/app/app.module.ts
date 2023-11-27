@@ -9,6 +9,7 @@ import { FooterComponent } from './components/commons/footer/footer.component';
 import { TmdbService } from './services/tmdb/tmdb.service';
 import { HomeModule } from './components/pages/home/home.module';
 import { MovieDetailsModule } from './components/pages/movie-details/movie-details.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,10 @@ import { MovieDetailsModule } from './components/pages/movie-details/movie-detai
     AppRoutingModule,
     HttpClientModule,
     HomeModule,
-    MovieDetailsModule
+    MovieDetailsModule,
+    BrowserAnimationsModule
   ],
+
   providers: [
     TmdbService
   ],

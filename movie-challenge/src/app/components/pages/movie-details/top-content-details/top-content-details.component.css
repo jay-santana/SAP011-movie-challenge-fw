@@ -1,0 +1,35 @@
+#top-content-container{
+    width: 42%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* border: solid red; */
+    gap: 0.8rem;
+    padding-top: 4rem;
+}
+
+.icon-back {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-decoration: none;
+    color: #877c84ad;
+}
+
+.text-back {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 700,
+  'GRAD' 200,
+  'opsz' 48
+}

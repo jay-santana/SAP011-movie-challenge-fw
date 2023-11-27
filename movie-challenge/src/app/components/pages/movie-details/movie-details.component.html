@@ -1,0 +1,10 @@
+<!-- <p>movie-details works!</p> -->
+<div id="movie-details-container">
+    <app-top-content-details [genre]="genre" [order]="order" [pageNumber]="pageNumber"></app-top-content-details>
+</div>
+<div *ngIf="movieLoaded, else spinner">
+    <app-details-container [movie]="movie"></app-details-container>
+</div>
+<ng-template #spinner>
+    <ngx-spinner></ngx-spinner>
+</ng-template>

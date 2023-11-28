@@ -16,7 +16,7 @@ describe('MovieDetailsComponent', () => {
       imports: [
         HttpClientTestingModule,
         RouterTestingModule
-      ], 
+      ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ]

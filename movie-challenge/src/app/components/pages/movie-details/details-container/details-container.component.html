@@ -2,35 +2,34 @@
   <div class="card">
     <div id="informs-container">
       <div class="row g-0">
-        <!-- <div class="col-md-4">
-          <img class="img-fluid rounded-start" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Film Image">
-        </div> -->
-          <div class="col-md-4" *ngIf="movie.poster_path; else noImage">
-            <img class="img-fluid rounded-start" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Film Image">
-          </div>
-          <ng-template #noImage>
-            <img class="img-fluid rounded-start" src="assets/no-poster.png" style="width: 30%;" alt="Film Image">
-          </ng-template>
+        <div class="col-md-4" *ngIf="movie.poster_path; else noImage">
+          <img class="img-fluid rounded-start" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}"
+            alt="Film Image">
+        </div>
+        <ng-template #noImage>
+          <img class="img-fluid rounded-start" src="assets/no-poster.png" style="width: 30%;" alt="Film Image">
+        </ng-template>
         <div class="col-md-8">
           <div class="card-body">
-            <div>
-              <h5 class="card-title">{{ movie.title }}</h5>
-              <h5 class="movie-vote"><strong>Votos: </strong> {{ movie.vote_count | number:'1.0-2'}}</h5>
-            </div>
-            <p class="info-year"><strong>Release Year: </strong> {{ movie.release_date | date: 'yyyy' }}</p>
-            <p class="info-genres"><strong>Genres: </strong> {{ movie.genres[0]?.name }}, {{ movie.genres[1]?.name }}
+            <h5 class="card-title">
+              <span id="title">{{ movie.title }}</span>
+              <ng-container *ngIf="movie.release_date"><span id="release-date"> ({{ movie.release_date | date: 'yyyy'
+                  }}) </span></ng-container>
+            </h5>
+            <h5 class="movie-vote"><strong>User Reviews: </strong> {{ movie.vote_average | number:'1.1-1'}} | {{
+              movie.vote_count | number:'1.0-2'}} votes</h5>
+            <p class="info-genres">
+              <strong>Genre: </strong> {{ movie.genres[0]?.name }}
+              <ng-container *ngIf="movie.genres.length > 1">, {{ movie.genres[1]?.name }}</ng-container>
             </p>
-            <p class="card-text"><strong>Overview: </strong> {{ movie.overview }}</p>
+            <ng-container *ngIf="movie.runtime">
+              <span id="runtime"> <strong>Duration: </strong> {{ convertMinutesToHoursAndMinutes(movie.runtime) }}
+              </span>
+            </ng-container>
+            <p class="overview"><strong>Overview: </strong> {{ movie.overview }}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- <div class="col-md-4" *ngIf="movie.poster_path; else noImage">
-          <img class="img-fluid rounded-start" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="Film Image">
-        </div>
-        <ng-template #noImage>
-          <img class="img-fluid rounded-start" src="assets/no-poster.png"  alt="Film Image">
-        </ng-template> -->

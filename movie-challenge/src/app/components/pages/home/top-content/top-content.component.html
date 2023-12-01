@@ -8,21 +8,11 @@
       <option *ngFor="let order of orderByList" [value]="order.order">{{ order.text }}</option>
     </select>
   </div>
-
-    <section id="search-container">
-      <form class="d-flex">
-        <input id="search" name="search" [(ngModel)]="keyWord" class="form-control" type="search" placeholder="Search" aria-label="Search" (input)="optionsChange()">
-        <!-- <button class="btn btn-outline-success" type="button" (click)="optionsChange()">Search</button> -->
-        <img src="assets/search.png" class="search-icon" alt="Search Image">
-      </form>
-    </section>
- 
-  <!-- <div style="color: white">
-    {{ selectedGenre }} - {{ selectedOrder }}
-  </div> -->
+  <!-- <section id="search-container">
+    <div class="d-flex">
+      <input id="search" name="search" [(ngModel)]="keyword" class="form-control" type="search" placeholder="Search"
+        aria-label="Search" (input)="optionsChange()">
+      <img src="assets/search.png" class="search-icon" alt="Search Image">
+    </div>
+  </section> -->
 </section>
-
-   <!-- <select id="order">
-      <option value="">Order by</option>
-      <option *ngFor="let option of orderBy" [value]="option">{{ option }}</option>
-    </select> -->

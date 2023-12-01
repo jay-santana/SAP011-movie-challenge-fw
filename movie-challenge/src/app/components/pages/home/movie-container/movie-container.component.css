@@ -6,7 +6,6 @@
 
 #movie-container {
     display: grid;
-    /* grid-template-columns: repeat(5, 1fr); */
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     margin: 10vmin;
     gap: 30px;
@@ -18,12 +17,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 5px solid #ccc; */
     border: 5px solid #877c8421;
     border-radius: 6px;
-    /* background-color: #e0abab; */
-    /* border: 5px solid #e0abab; */
-    /* padding: 1rem; */
 }
 
 .cards:hover {
@@ -48,9 +43,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* border: 1px solid #ccc; */
-    /* background-color: #e0abab;
-    border: 1px solid #e0abab; */
 }
 
 #title {

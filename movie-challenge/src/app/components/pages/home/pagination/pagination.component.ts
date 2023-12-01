@@ -9,13 +9,18 @@ export class PaginationComponent {
   @Input() currentPage: number = 1;
   @Input() totalPages: number = 0;
   @Output() pageChanged = new EventEmitter<number>();
-  // totalPagesArray: any[] = [];
 
   constructor() { }
 
+  loadFirstPage() {
+    if (this.currentPage !== 1) {
+      this.currentPage = 1;
+      this.pageChanged.emit(this.currentPage);
+    }
+  }
+
   loadPreviousPage() {
     if (this.currentPage > 1) {
-      // console.log(this.currentPage);
       this.currentPage--;
       this.pageChanged.emit(this.currentPage);
     }
@@ -23,7 +28,6 @@ export class PaginationComponent {
 
   loadNextPage() {
     if (this.currentPage < this.totalPages) {
-      // console.log(this.currentPage);
       this.currentPage++;
       this.pageChanged.emit(this.currentPage);
     }
@@ -40,6 +44,5 @@ export class PaginationComponent {
 
   isSelectedPage(pageNumber: number): boolean {
     return pageNumber === this.currentPage;
-  }
-  
+  } 
 }

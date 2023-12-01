@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-top-content',
   templateUrl: './top-content.component.html',
@@ -8,7 +8,8 @@ export class TopContentComponent {
   @Input() genres: any[] = [];
   @Input() orderBy: any[] = [];
   @Input() moviesByGenre: any[] = [];
-  @Output() filterChanged: EventEmitter<{ genreId: string, orderBy: string, keyWord: string }> = new EventEmitter<{ genreId: string, orderBy: string, keyWord: string }>();
+  @Output() filterChanged: EventEmitter<{ genreId: string, orderBy: string, keyword: string }> = new EventEmitter<{ genreId: string, orderBy: string, keyword: string }>();
+  // @Output() searchRequested: EventEmitter<string> = new EventEmitter<string>();
   // @ViewChild("filter") filter!: ElementRef;
 
   orderByList: any[] = [
@@ -41,64 +42,16 @@ export class TopContentComponent {
 
   selectedGenre: string = '0';
   selectedOrder: string = this.orderByList[0].order;
-  keyWord: string = '';
-
-  // selectedGenre?: any = 0;
-  // selectedOrder?: any = this.orderByList[0].order;
+  keyword: string = '';
 
   constructor() {
   }
 
   optionsChange() {
-    console.log(`${this.selectedGenre} - ${this.selectedOrder}`);
     this.filterChanged.emit({
       genreId: this.selectedGenre,
       orderBy: this.selectedOrder,
-      keyWord: this.keyWord,
+      keyword: this.keyword,
     });
-    // console.log('evento', event.target.value);
   }
-
-
-
-  // optionsChange(event: any) {
-  //   console.log(`${this.selectedGenre} - ${this.selectedOrder}`);
-  //   this.filterChanged.emit({
-  //     genreId: this.selectedGenre,
-  //     orderBy: this.selectedOrder
-  //   });
-  // }
-
-  // selectGenre(event: any) {
-  //   console.log('select Genre',event);
-  //   this.selectedGenre = Number(event);
-  //   this.showMoviesWithGenre(Number(event));
-  // }
 }
-
-// genreChange() {
-//   this.filterChanged.emit();
-// }
-// orderChange() {
-//   this.filterChanged.emit();
-// }
-
-// genreChange(event: Event) {
-//   console.log('Gender Change Called');
-//   this.selectedGenre = +(event.target as HTMLSelectElement).value;
-//   this.filterChanged.emit({
-//     genreId: this.selectedGenre,
-//     orderBy: 'popularity.desc'
-//   });
-// }
-
-// orderChange(event: Event) {
-//   console.log('Order Change Called');
-//   this.selectedOrder = (event.target as HTMLSelectElement).value;
-//   this.emitFilterChanged();
-// }
-
-// emitFilterChanged() {
-//   console.log('Emitting Filter Changed Event');
-//   this.filterChanged.emit({ genreId: this.selectedGenre || 0, orderBy: this.selectedOrder || '' });
-// }

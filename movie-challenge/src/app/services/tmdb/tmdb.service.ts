@@ -20,14 +20,8 @@ export class TmdbService {
     private readonly _HTTP: HttpClient
   ) { }
 
-  getMoviesByPages(page: number, genreId?: string, orderBy?: string, keyWord?: string): Observable<any> {
-    // if (genreId !== 0) {
-    //   return this._HTTP.get(`${this._URL}${page}&with_genres=${genreId}`);
-    // } else {
-    //   return this._HTTP.get(`${this._URL}${page}`);
-    // }
-    console.log(`${this._DISCOVER}${page}${genreId?this._SELECTGENRE+`${genreId}`:``}${orderBy?this._SORT+`${orderBy}`:``}${keyWord?this._SEARCH+`${keyWord}`:``}`)
-    return this._HTTP.get(`${this._DISCOVER}${page}${genreId?this._SELECTGENRE+`${genreId}`:``}${orderBy?this._SORT+`${orderBy}`:``}${keyWord?this._SEARCH+`${keyWord}`:``}`);
+  getMoviesByPages(page: number, genreId?: string, orderBy?: string, keyword?: string): Observable<any> {
+    return this._HTTP.get(`${this._DISCOVER}${page}${genreId?this._SELECTGENRE+`${genreId}`:``}${orderBy?this._SORT+`${orderBy}`:``}${keyword?this._SEARCH+`${keyword}`:``}`);
   }
 
   getMoviesById(id: number): Observable<any> {
@@ -38,31 +32,7 @@ export class TmdbService {
     return this._HTTP.get(`${this._GENRELIST}?api_key=${this._KEY}`);
   }
 
-  getMoviesByGenre(genreId: string): Observable<any> {
-    return this._HTTP.get(`${this._SELECTGENRE}?api_key=${this._KEY}&with_genres=${genreId}`);
+  getMoviesBySearch(keyword: string): Observable<any> {
+    return this._HTTP.get(`${this._DISCOVER}1${this._SEARCH}${keyword}`);
   }
-
-  // getMoviesByOrder(sortBy: any): Observable<any> {
-  //   return this._HTTP.get(`${this._ORDERBY}?api_key=${this._KEY}&sort_by=${sortBy}`);
-  // }
-
-  getMoviesByOrder(sortBy: string): Observable<any> {
-    return this._HTTP.get(`${this._SORT}?api_key=${this._KEY}&sort_by=${sortBy}`);
-  }
-
-  getMoviesBySearch(value: string): Observable<any> {
-    return this._HTTP.get(`${this._SEARCH}?api_key=${this._KEY}&search=${value}`);
-  }
-
-
 }
-
-
-
-// getMoviesByGenre(genreId: any): Observable<any> {
-//   return this._HTTP.get(`${this._SELECTGENRE}?api_key=${this._KEY}&with_genres=${genreId}`);
-// }
-
-// getMoviesByOrder(sortBy: any): Observable<any> {
-//   return this._HTTP.get(`${this._ORDERBY}?api_key=${this._KEY}&sort_by=${sortBy}`);
-// }

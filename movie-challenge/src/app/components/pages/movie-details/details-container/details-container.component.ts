@@ -13,5 +13,9 @@ export class DetailsContainerComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.movie);
   }
-
+  convertMinutesToHoursAndMinutes(minutes: number): string {
+    const hours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes % 60;
+    return `${hours}h ${remainingMinutes}m`;
+  }
 }
